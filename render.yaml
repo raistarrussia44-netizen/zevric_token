@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: zevric-token
+    env: node
+    buildCommand: npm install -g http-server
+    startCommand: http-server -p $PORT -c-1 --gzip
+    staticSite: true
+    routes:
+      - path: /
+        destination: /index.html
