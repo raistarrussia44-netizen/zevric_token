@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zevric Token Generator - Access Token Extract</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -219,7 +220,7 @@
 
         .provider-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
         }
@@ -248,7 +249,12 @@
         }
 
         .provider-icon {
-            font-size: 32px;
+            font-size: 36px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .provider-name {
@@ -446,7 +452,7 @@
 
         .social-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
             gap: 15px;
         }
 
@@ -473,7 +479,12 @@
         }
 
         .social-icon {
-            font-size: 28px;
+            font-size: 32px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Responsive */
@@ -483,7 +494,7 @@
             }
 
             .provider-grid {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
             }
 
             h1 {
@@ -536,7 +547,7 @@
     <div class="tutorial-section">
         <a href="https://www.youtube.com/results?search_query=token+generation" target="_blank" class="tutorial-card">
             <div class="tutorial-card-content">
-                <div class="video-icon">🎬</div>
+                <div class="video-icon"><i class="fas fa-play-circle"></i></div>
                 <div class="tutorial-text">
                     <h3>Full Tutorial</h3>
                     <p>Click to watch how to get access token</p>
@@ -547,7 +558,7 @@
 
         <a href="https://www.youtube.com/results?search_query=token+extraction" target="_blank" class="tutorial-card">
             <div class="tutorial-card-content">
-                <div class="video-icon">🎥</div>
+                <div class="video-icon"><i class="fas fa-video"></i></div>
                 <div class="tutorial-text">
                     <h3>2nd Method</h3>
                     <p>Click to watch alternative token method</p>
@@ -560,14 +571,14 @@
     <div class="container">
         <!-- How to Use Section -->
         <div class="how-to-section">
-            <div class="section-title">📚 HOW TO USE</div>
+            <div class="section-title"><i class="fas fa-book"></i> HOW TO USE</div>
 
             <div class="step">
                 <div class="step-number">1</div>
                 <div class="step-content">
                     <h4>Select Provider & Login</h4>
                     <p>Click on your preferred provider (Google, Facebook, Apple, Twitter, VK) and complete the login process with your credentials.</p>
-                    <p style="color: #00ff00; margin-top: 8px;">✓ Safe: Official Server (No Scam Risk)</p>
+                    <p style="color: #00ff00; margin-top: 8px;"><i class="fas fa-shield-alt"></i> Safe: Official Server (No Scam Risk)</p>
                 </div>
             </div>
 
@@ -587,33 +598,33 @@ https://callback.example.com/?eat=14f060774299fb93a5...&lang=en&ion=IND&account_
                 <div class="step-content">
                     <h4>Paste & Generate</h4>
                     <p>Paste the URL or just the EAT Token below and click <strong>GENERATE ACCESS</strong> button.</p>
-                    <p style="margin-top: 8px; color: #888;">Supports full URL or raw token</p>
+                    <p style="margin-top: 8px; color: #888;"><i class="fas fa-check"></i> Supports full URL or raw token</p>
                 </div>
             </div>
         </div>
 
         <!-- Provider Selection -->
         <div class="provider-section">
-            <div class="section-title">👤 SELECT PROVIDER & LOGIN</div>
+            <div class="section-title"><i class="fas fa-user-circle"></i> SELECT PROVIDER & LOGIN</div>
             <div class="provider-grid">
                 <a href="https://accounts.google.com/login" target="_blank" class="provider-btn">
-                    <div class="provider-icon">🔵</div>
+                    <div class="provider-icon"><i class="fab fa-google"></i></div>
                     <div class="provider-name">Google</div>
                 </a>
                 <a href="https://www.facebook.com/login" target="_blank" class="provider-btn">
-                    <div class="provider-icon">👤</div>
+                    <div class="provider-icon"><i class="fab fa-facebook"></i></div>
                     <div class="provider-name">Facebook</div>
                 </a>
                 <a href="https://appleid.apple.com/sign-in" target="_blank" class="provider-btn">
-                    <div class="provider-icon">🍎</div>
+                    <div class="provider-icon"><i class="fab fa-apple"></i></div>
                     <div class="provider-name">Apple</div>
                 </a>
                 <a href="https://twitter.com/login" target="_blank" class="provider-btn">
-                    <div class="provider-icon">𝕏</div>
+                    <div class="provider-icon"><i class="fab fa-x-twitter"></i></div>
                     <div class="provider-name">Twitter</div>
                 </a>
                 <a href="https://vk.com/login" target="_blank" class="provider-btn">
-                    <div class="provider-icon">🔷</div>
+                    <div class="provider-icon"><i class="fab fa-vk"></i></div>
                     <div class="provider-name">VK</div>
                 </a>
             </div>
@@ -621,11 +632,11 @@ https://callback.example.com/?eat=14f060774299fb93a5...&lang=en&ion=IND&account_
 
         <!-- Input Section -->
         <div class="input-section">
-            <div class="input-label">🔗 PASTE KIOSGAMER URL OR EAT TOKEN</div>
+            <div class="input-label"><i class="fas fa-link"></i> PASTE KIOSGAMER URL OR EAT TOKEN</div>
             <div class="input-group">
                 <input type="text" id="tokenInput" placeholder="Paste kiosgamer URL or just the Eat token here...">
             </div>
-            <div class="input-hint">✓ Supports full URL or raw token</div>
+            <div class="input-hint"><i class="fas fa-check-circle"></i> Supports full URL or raw token</div>
 
             <div class="button-group">
                 <button class="generate-btn" onclick="generateAccess()">GENERATE ACCESS →</button>
@@ -635,30 +646,30 @@ https://callback.example.com/?eat=14f060774299fb93a5...&lang=en&ion=IND&account_
 
         <!-- Output Section -->
         <div class="output-section">
-            <div class="output-label">📤 GENERATED ACCESS TOKEN</div>
+            <div class="output-label"><i class="fas fa-arrow-up-from-bracket"></i> GENERATED ACCESS TOKEN</div>
             <div class="output-box" id="outputBox">Generated token will appear here...</div>
-            <button class="copy-btn" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+            <button class="copy-btn" onclick="copyToClipboard()"><i class="fas fa-copy"></i> Copy to Clipboard</button>
             <div class="status-message" id="statusMessage"></div>
         </div>
 
         <!-- Social Links -->
         <div class="social-section">
-            <div class="social-title">💬 CONNECT WITH US</div>
+            <div class="social-title"><i class="fas fa-comment-dots"></i> CONNECT WITH US</div>
             <div class="social-grid">
                 <a href="https://t.me/raistarrussia44" target="_blank" class="social-btn">
-                    <div class="social-icon">✈️</div>
+                    <div class="social-icon"><i class="fab fa-telegram"></i></div>
                     <div>Telegram</div>
                 </a>
                 <a href="https://youtube.com" target="_blank" class="social-btn">
-                    <div class="social-icon">📺</div>
+                    <div class="social-icon"><i class="fab fa-youtube"></i></div>
                     <div>YouTube</div>
                 </a>
                 <a href="https://instagram.com" target="_blank" class="social-btn">
-                    <div class="social-icon">📷</div>
+                    <div class="social-icon"><i class="fab fa-instagram"></i></div>
                     <div>Instagram</div>
                 </a>
                 <a href="https://github.com/raistarrussia44-netizen" target="_blank" class="social-btn">
-                    <div class="social-icon">🐙</div>
+                    <div class="social-icon"><i class="fab fa-github"></i></div>
                     <div>GitHub</div>
                 </a>
             </div>
@@ -704,7 +715,7 @@ https://callback.example.com/?eat=14f060774299fb93a5...&lang=en&ion=IND&account_
                     return;
                 }
 
-                // Generate mock access response (in real scenario, this would call an API)
+                // Generate mock access response
                 const accessResponse = {
                     status: "success",
                     access_token: token,
