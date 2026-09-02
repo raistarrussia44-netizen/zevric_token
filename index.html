@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zevric Token Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(22, 33, 62, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #00d4ff;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .header p {
+            color: #a0a0a0;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #00d4ff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        input::placeholder {
+            color: #606060;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .output-section {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .output-label {
+            color: #00d4ff;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .token-output {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 6px;
+            padding: 15px;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            word-break: break-all;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .copy-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(0, 212, 255, 0.2);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(0, 212, 255, 0.3);
+            border-color: #00d4ff;
+        }
+
+        .status-message {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #00ff00;
+            min-height: 20px;
+        }
+
+        .error {
+            color: #ff4444;
+        }
+
+        .success {
+            color: #00ff00;
+        }
+
+        .info-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 3px solid #00d4ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 25px;
+            font-size: 12px;
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            button {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 Zevric Token</h1>
+            <p>Generate Secure Tokens Instantly</p>
+        </div>
+
+        <div class="form-group">
+            <label for="tokenLength">Token Length</label>
+            <input type="number" id="tokenLength" min="8" max="256" value="32" placeholder="Enter token length">
+        </div>
+
+        <div class="form-group">
+            <label for="tokenType">Token Type</label>
+            <select id="tokenType">
+                <option value="alphanumeric">Alphanumeric (A-Z, 0-9)</option>
+                <option value="hex">Hexadecimal (0-9, A-F)</option>
+                <option value="base64">Base64</option>
+                <option value="uuid">UUID v4</option>
+                <option value="secure">Secure (Special Chars)</option>
+            </select>
+        </div>
+
+        <div class="button-group">
+            <button onclick="generateToken()">Generate Token</button>
+            <button onclick="clearAll()" style="background: linear-gradient(135deg, #ff6b6b 0%, #cc5555 100%);">Clear</button>
+        </div>
+
+        <div class="output-section">
+            <div class="output-label">Generated Token</div>
+            <div class="token-output" id="tokenOutput">Click "Generate Token" to create one...</div>
+            <button class="copy-btn" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+        </div>
+
+        <div class="status-message" id="statusMessage"></div>
+
+        <div class="info-box">
+            <strong>ℹ️ Info:</strong><br>
+            • <strong>Alphanumeric:</strong> Safe for most uses<br>
+            • <strong>Hexadecimal:</strong> API tokens<br>
+            • <strong>Base64:</strong> Encoding data<br>
+            • <strong>UUID:</strong> Unique identifiers<br>
+            • <strong>Secure:</strong> High security passwords
+        </div>
+    </div>
+
+    <script>
+        function generateToken() {
+            const length = parseInt(document.getElementById('tokenLength').value);
+            const type = document.getElementById('tokenType').value;
+            let token = '';
+
+            // Validation
+            if (isNaN(length) || length < 8 || length > 256) {
+                showMessage('Token length must be between 8 and 256', 'error');
+                return;
+            }
+
+            try {
+                if (type === 'alphanumeric') {
+                    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                    for (let i = 0; i < length; i++) {
+                        token += chars.charAt(Math.floor(Math.random() * chars.length));
+                    }
+                } 
+                else if (type === 'hex') {
+                    for (let i = 0; i < length; i++) {
+                        token += Math.floor(Math.random() * 16).toString(16);
+                    }
+                } 
+                else if (type === 'base64') {
+                    const array = new Uint8Array(length);
+                    crypto.getRandomValues(array);
+                    token = btoa(String.fromCharCode.apply(null, array)).slice(0, length);
+                } 
+                else if (type === 'uuid') {
+                    token = generateUUID();
+                } 
+                else if (type === 'secure') {
+                    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
+                    const array = new Uint8Array(length);
+                    crypto.getRandomValues(array);
+                    for (let i = 0; i < length; i++) {
+                        token += chars.charAt(array[i] % chars.length);
+                    }
+                }
+
+                document.getElementById('tokenOutput').textContent = token;
+                showMessage('✓ Token generated successfully!', 'success');
+            } catch (error) {
+                showMessage('Error generating token: ' + error.message, 'error');
+            }
+        }
+
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function copyToClipboard() {
+            const tokenOutput = document.getElementById('tokenOutput');
+            const token = tokenOutput.textContent;
+
+            if (token === 'Click "Generate Token" to create one...') {
+                showMessage('Generate a token first!', 'error');
+                return;
+            }
+
+            navigator.clipboard.writeText(token).then(() => {
+                showMessage('✓ Copied to clipboard!', 'success');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = token;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showMessage('✓ Copied to clipboard!', 'success');
+            });
+        }
+
+        function clearAll() {
+            document.getElementById('tokenOutput').textContent = 'Click "Generate Token" to create one...';
+            document.getElementById('tokenLength').value = '32';
+            document.getElementById('tokenType').value = 'alphanumeric';
+            document.getElementById('statusMessage').textContent = '';
+        }
+
+        function showMessage(message, type) {
+            const messageEl = document.getElementById('statusMessage');
+            messageEl.textContent = message;
+            messageEl.className = `status-message ${type}`;
+
+            if (type === 'success') {
+                setTimeout(() => {
+                    messageEl.textContent = '';
+                }, 3000);
+            }
+        }
+
+        // Enter key support
+        document.getElementById('tokenLength').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') generateToken();
+        });
+    </script>
+</body>
+</html>
